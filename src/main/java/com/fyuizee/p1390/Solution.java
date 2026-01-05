@@ -23,7 +23,6 @@ Output: 0
 */
 
 public class Solution {
-
   public int sumFourDivisors(int[] nums) {
     int sum = 0;
     for (int i = 0; i < nums.length; i++) {
