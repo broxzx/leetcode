@@ -23,7 +23,7 @@ public class Solution {
     }
 
     int res = root.val;
-    int maxLevel = 0;
+    int maxLevel = 1;
     int level = 1;
     while (!queue.isEmpty()) {
       int sum = 0;
