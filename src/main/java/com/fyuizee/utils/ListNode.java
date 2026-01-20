@@ -19,10 +19,12 @@ public class ListNode {
 
   @Override
   public String toString() {
-    StringBuilder stringBuilder = new StringBuilder(this.val + " -> ");
+    String toAppend = this.next != null ? this.val + " -> " : this.val + "";
+    StringBuilder stringBuilder = new StringBuilder(toAppend);
 
     while (next != null) {
-      stringBuilder.append(next.val + " -> ");
+      String toAppendInner = next.next != null ? next.val + " -> " : next.val + "";
+      stringBuilder.append(toAppendInner);
       next = next.next;
     }
 
