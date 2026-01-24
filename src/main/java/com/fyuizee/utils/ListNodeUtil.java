@@ -17,4 +17,17 @@ public class ListNodeUtil {
 
     return head;
   }
+
+  private static ListNode reverseNode(ListNode node) {
+    ListNode prev = null, current = node;
+
+    while (current != null) {
+      ListNode next = current.next;
+      current.next = prev;
+      prev = current;
+      current = next;
+    }
+
+    return prev;
+  }
 }
