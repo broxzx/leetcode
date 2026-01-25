@@ -1,6 +1,6 @@
 package com.fyuizee.utils;
 
-public class ListNode {
+public class ListNode implements Cloneable {
 
   public int val;
   public ListNode next;
@@ -22,10 +22,13 @@ public class ListNode {
     String toAppend = this.next != null ? this.val + " -> " : this.val + "";
     StringBuilder stringBuilder = new StringBuilder(toAppend);
 
-    while (next != null) {
-      String toAppendInner = next.next != null ? next.val + " -> " : next.val + "";
+    ListNode toIterate = new ListNode(0, next);
+    toIterate = toIterate.next;
+
+    while (toIterate != null) {
+      String toAppendInner = toIterate.next != null ? toIterate.val + " -> " : toIterate.val + "";
       stringBuilder.append(toAppendInner);
-      next = next.next;
+      toIterate = toIterate.next;
     }
 
     return stringBuilder.toString();
