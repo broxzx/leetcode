@@ -1,6 +1,8 @@
 package com.fyuizee.p96;
 
+import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 import com.fyuizee.utils.TreeNode;
@@ -10,28 +12,18 @@ import com.fyuizee.utils.TreeNode;
  */
 public class Solution {
 
-  private int sum = 0;
+  private int res = 0;
 
   public int numTrees(int n) {
-    numTrees(null, null, n);
-
-    return sum;
-  }
-
-  private void numTrees(TreeNode node, Set<Integer> contains, int n) {
+    List<Integer> nums = new ArrayList<>();
     for (int i = 1; i <= n; i++) {
-      if (node == null) {
-        sum++;
-        numTrees(new TreeNode(i), new HashSet<>(Set.of(i)), n);
-      } else {
-        HashSet<Integer> set = new HashSet<>(contains);
-        set.add(i);
-        numTrees(node, set, n);
-      }
+      nums.add(i);
     }
+
   }
 
-  private TreeNode copy(TreeNode src, TreeNode dst) {
-    return null;
+  private void buildTree(List<Integer> nums, int left, int right) {
+
   }
+
 }
