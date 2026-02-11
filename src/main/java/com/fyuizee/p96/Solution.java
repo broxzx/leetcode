@@ -1,11 +1,7 @@
 package com.fyuizee.p96;
 
 import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
-
-import com.fyuizee.utils.TreeNode;
 
 /**
  * Solution
@@ -20,6 +16,7 @@ public class Solution {
       nums.add(i);
     }
 
+    return -1;
   }
 
   private void buildTree(List<Integer> nums, int left, int right) {
