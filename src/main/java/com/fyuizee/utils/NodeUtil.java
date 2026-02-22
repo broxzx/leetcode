@@ -1,40 +1,32 @@
 package com.fyuizee.utils;
 
-import java.util.LinkedList;
-import java.util.Queue;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 public class NodeUtil {
 
-  public static Node buildTree(Integer[] arr) {
-    if (arr == null || arr.length == 0 || arr[0] == null) {
+  public static Node buildGraph(List<List<Integer>> adjList) {
+    if (adjList == null || adjList.isEmpty()) {
       return null;
     }
 
-    Node root = new Node(arr[0]);
-    Queue<Node> queue = new LinkedList<>();
-    queue.offer(root);
+    Map<Integer, Node> map = new HashMap<>();
 
-    int i = 1;
-
-    while (!queue.isEmpty() && i < arr.length) {
-      Node current = queue.poll();
-
-      // Left child
-      if (i < arr.length && arr[i] != null) {
-        current.left = new Node(arr[i]);
-        queue.offer(current.left);
-      }
-      i++;
-
-      // Right child
-      if (i < arr.length && arr[i] != null) {
-        current.right = new Node(arr[i]);
-        queue.offer(current.right);
-      }
-      i++;
+    for (int i = 0; i < adjList.size(); i++) {
+      map.put(i + 1, new Node());
+      map.get(i + 1).val = i + 1;
+      map.get(i + 1).neighbors = new ArrayList<>();
     }
 
-    return root;
-  }
+    for (int i = 0; i < adjList.size(); i++) {
+      Node current = map.get(i + 1);
+      for (int neighborVal : adjList.get(i)) {
+        current.neighbors.add(map.get(neighborVal));
+      }
+    }
 
+    return map.get(1);
+  }
 }

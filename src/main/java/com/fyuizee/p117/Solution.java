@@ -1,6 +1,6 @@
 package com.fyuizee.p117;
 
-import com.fyuizee.utils.Node;
+import com.fyuizee.utils.gb.Node;
 
 import java.util.LinkedList;
 import java.util.Queue;
